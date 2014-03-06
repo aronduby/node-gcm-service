@@ -101,9 +101,6 @@ Sender.prototype._createResult = function (registration_id, data) {
 Sender.prototype._createBatchArrays = function (registration_ids, callback) {
     var array = [];
 
-    if (registration_ids.length <= 1000)
-        return callback(registration_ids);
-
     while (registration_ids.length) {
         array.push(registration_ids.splice(0, 1000));
     }
