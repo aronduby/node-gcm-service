@@ -422,7 +422,7 @@ Sender.prototype.setAPIKey = function (key) {
  * @param endpoint
  */
 Sender.prototype.setGCMEndpoint = function (endpoint) {
-    if (typeof endpoint === 'string') return false;
+    if (typeof endpoint !== 'string') return false;
     this.gcmEndpoint = endpoint;
     debug('SET > "gcmEndpoint" to %s', endpoint);
 };
