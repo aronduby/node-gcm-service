@@ -267,7 +267,7 @@ Sender.prototype._sendJSONRequest = function (options, attemptOptions, message, 
                         data = JSON.parse(data);
 
                         multicastResult.addMulticastId(data.multicast_id);
-                        multicastResult.setSuccessLength(data.success);
+                        multicastResult.addSuccessLength(data.success);
 
                         var results = data.results;
 

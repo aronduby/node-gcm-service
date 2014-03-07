@@ -151,12 +151,27 @@ MulticastResult.prototype.addFailureValueWithKey = function (key, value) {
  * Set success length.
  *
  * @param length
- * @returns {boolean}
  */
 MulticastResult.prototype.setSuccessLength = function (length) {
     if (typeof length !== 'number') return false;
     this.success_length = length;
     debug('SET > "success_length" to %s', length);
+};
+
+/**
+ * Increase success_length - used in batch processing,
+ * when every batch increases success_length by its own
+ * results
+ *
+ * @param length
+ */
+MulticastResult.prototype.addSuccessLength = function (length) {
+    var self = this;
+
+    if (typeof length !== 'number') return false;
+
+    self.success_length += length;
+    debug('DEBUG > increase "success_length" by %s to %s', length, self.success_length);
 };
 
 module.exports = MulticastResult;
