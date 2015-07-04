@@ -19,7 +19,11 @@ var debug = require('debug')('gcm:multicast_result');
 function MulticastResult() {
     this.multicast_ids = null;
     this.success_length = 0;
-    this.failures = {};
+    this.failures = {
+        "NotRegistered": [],
+        "Unavailable": [],
+        "InvalidRegistration": []
+    };
     this.failures_length = 0;
     this.canonical_ids = [];
     this.canonical_ids_length = 0;
