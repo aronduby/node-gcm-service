@@ -32,7 +32,7 @@ var gcm = require('node-gcm-service');
 
 Create a message object with default values and set all variables after, or with another object:
 
-* with default values
+*with default values:*
 
 ```javascript
 var message = new gcm.Message();
@@ -55,7 +55,7 @@ message.setDryRun(false);
 message.setDelayWhileIdle(true);
 ```
 
-* with another object (undefined variables will be set with the default values)
+*with another object (undefined variables will be set with the default values)*
 
 ```javascript
 var message = new gcm.Message({
@@ -71,7 +71,7 @@ var message = new gcm.Message({
 
 Create a sender object with default values and set the api key after, or with another object:
 
-* with default values
+*with default values*
 
 ```javascript
 var sender = new gcm.Sender();
@@ -80,7 +80,7 @@ var sender = new gcm.Sender();
 sender.setAPIKey('key');
 ```
 
-* with another object
+*with another object*
 
 ```javascript
 var sender = new gcm.Sender({
@@ -92,7 +92,7 @@ var sender = new gcm.Sender({
 
 And finally send the message to the specified registration id(s) with retries or not, in JSON format or plain-text format :
 
-* with retries in JSON format
+*with retries in JSON format*
 
 ```javascript
 sender.sendMessage(message.toJSON(), registration_ids, true, function(err, data) {
@@ -104,7 +104,7 @@ sender.sendMessage(message.toJSON(), registration_ids, true, function(err, data)
 });
 ```
 
-* without retries in plain-text format
+*without retries in plain-text format*
 
 ```javascript
 sender.sendMessage(message.toString(), registration_ids, false, function(err, data) {
@@ -120,7 +120,7 @@ sender.sendMessage(message.toString(), registration_ids, false, function(err, da
 
 #### Multicast (JSON response)
 
-* GCM response
+*GCM Response*
 
 ```javascript
 {
@@ -139,7 +139,7 @@ sender.sendMessage(message.toString(), registration_ids, false, function(err, da
 }
 ```
 
-* module response
+*Module Response*
 
 ```javascript
 {
@@ -162,16 +162,18 @@ sender.sendMessage(message.toString(), registration_ids, false, function(err, da
 }
 ```
 
+Module response will always include the sub keys for failures, initialized as empty arrays, to save a lot of checking
+
 #### Simple (plain-text response)
 
-* GCM response
+*GCM response*
 
 ```
 id=1:2342
 registration_id=32
 ```
 
-* module response
+*module response*
 
 ```javascript
 {
